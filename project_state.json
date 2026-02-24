@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "StoryWave is a modern mobile-first web app for creating, recording, and publishing audio stories. Target audience is teens and young adults. Features include user authentication (email + Google), story creation with audio upload/recording, story feed with mini player, full audio player with controls, search & discover, and user library. UI uses dark mode, purple/blue gradients, and a minimal modern design. Tech stack: React + Tailwind CSS, Node.js + Express, MongoDB, Cloudinary/Firebase for storage, Firebase Auth or JWT.",
+  "architectural_notes": [
+    "Frontend: React + Tailwind CSS; Backend: Node.js + Express; Database: MongoDB; Storage: Cloudinary or Firebase; Auth: Firebase Auth or JWT",
+    "Dark mode default UI with purple/blue gradient accents, rounded cards, smooth animations, mobile-first responsive design"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-based-authentication-so-users-can-sign-in-and-have-a-persistent-profile-username-bio-profile-picture-url-stored-on-the-backend",
+      "title": "Implement Internet Identity-based authentication so users can sign in and have a persistent profile (username, bio, profile picture URL) stored on the backend.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-story-creation-users-can-submit-a-story-with-a-title-description-category-horror-romance-motivation-comedy-sci-fi-real-life-a-cover-image-url-and-an-audio-file-stored-as-binary-data-in-the-backend-include-a-publish-button-that-saves-the-story",
+      "title": "Implement story creation: users can submit a story with a title, description, category (Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a cover image URL, and an audio file stored as binary data in the backend. Include a Publish button that saves the story.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-scrollable-story-feed-on-the-home-screen-showing-all-published-stories-as-cards-with-cover-image-title-creator-name-category-tag-like-button-toggle-save-to-library-button-and-a-mini-inline-audio-player-play-pause-progress-bar",
+      "title": "Implement a scrollable story feed on the home screen showing all published stories as cards with cover image, title, creator name, category tag, like button (toggle), save-to-library button, and a mini inline audio player (play/pause, progress bar).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-full-screen-audio-player-view-that-opens-when-a-story-is-selected-featuring-play-pause-10-second-forward-back-skip-buttons-playback-speed-selector-1x-1-5x-2x-and-a-seekable-progress-bar-with-elapsed-total-time-display",
+      "title": "Implement a full-screen audio player view that opens when a story is selected, featuring play/pause, 10-second forward/back skip buttons, playback speed selector (1x, 1.5x, 2x), and a seekable progress bar with elapsed/total time display.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-search-discover-screen-with-a-text-search-field-searches-by-story-title-or-creator-username-a-category-filter-and-a-trending-section-that-surfaces-the-most-liked-stories",
+      "title": "Implement a Search & Discover screen with a text search field (searches by story title or creator username), a category filter, and a Trending section that surfaces the most-liked stories.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-user-library-screen-with-three-tabs-saved-stories-stories-the-user-saved-my-stories-stories-the-user-published-and-recently-played-last-stories-played-tracked-client-side-in-local-state",
+      "title": "Implement a User Library screen with three tabs: Saved Stories (stories the user saved), My Stories (stories the user published), and Recently Played (last stories played, tracked client-side in local state).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-track-story-view-count-on-the-backend-increment-a-view-counter-each-time-a-story-s-audio-player-is-opened-and-display-the-count-on-the-story-card-and-full-screen-player",
+      "title": "Track story view count on the backend: increment a view counter each time a story's audio player is opened, and display the count on the story card and full-screen player.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-dark-mode-default-visual-theme-throughout-the-app-deep-dark-backgrounds-purple-to-blue-gradient-accents-modern-sans-serif-typography-rounded-card-components-smooth-css-transitions-animations-and-a-mobile-first-responsive-layout-with-bottom-tab-navigation-for-home-search-create-library-and-profile",
+      "title": "Apply a dark-mode-default visual theme throughout the app: deep dark backgrounds, purple-to-blue gradient accents, modern sans-serif typography, rounded card components, smooth CSS transitions/animations, and a mobile-first responsive layout with bottom tab navigation for Home, Search, Create, Library, and Profile.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-storywave-app-logo-icon-and-a-hero-background-image-for-the-splash-onboarding-screen-in-a-dark-moody-audio-wave-aesthetic",
+      "title": "Generate a StoryWave app logo/icon and a hero background image for the splash/onboarding screen in a dark, moody, audio-wave aesthetic.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-ai-generate-story-flow-accessible-from-the-create-page-display-a-form-with-a-category-selector-matching-existing-categories-horror-romance-motivation-comedy-sci-fi-real-life-a-tone-selector-dark-uplifting-funny-suspenseful-inspirational-and-an-optional-short-prompt-input-field-when-the-user-submits-call-the-backend-generatestory-function-show-a-loading-skeleton-then-display-the-returned-title-description-and-narrative-body-in-editable-text-fields-so-the-user-can-review-and-modify-the-content-before-publishing",
+      "title": "Add an 'AI Generate Story' flow accessible from the Create page. Display a form with a category selector (matching existing categories: Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone selector (Dark, Uplifting, Funny, Suspenseful, Inspirational), and an optional short prompt input field. When the user submits, call the backend generateStory function, show a loading skeleton, then display the returned title, description, and narrative body in editable text fields so the user can review and modify the content before publishing.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "User authentication - sign up/login with email and Google, user profile with username, bio, and profile picture",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a story - title, description, category, upload or record audio, add cover image, publish",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Story feed - scrollable feed with cover image, title, creator, category, mini audio player, like and save buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Full audio player UI - play/pause, 10s forward/back, playback speed control, progress bar",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Search & Discover - search by title or creator, filter by category, trending stories section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "User Library - saved stories, my published stories, recently played",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Optional extras - comment section, follower system, creator verification badge, story views count, AI text-to-speech voice generator",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "AI story generator - users can generate audio stories in the app's style (title, description, narrative content) using AI, with options to select genre/category and tone",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add an AI story generator backend API in the Motoko actor that accepts a category (Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone (e.g. dark, uplifting, funny, suspenseful, inspirational), and an optional user prompt, then returns a generated story object containing a title, a description (2–3 sentences), and a full narrative body (3–5 paragraphs) written in the StoryWave storytelling style. Store the generated story as a draft associated with the caller's principal so it can be edited and published.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "StoryWave",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

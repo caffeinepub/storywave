@@ -1,0 +1,60 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T22:44:02.763Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Add an AI story generator backend API in the Motoko actor that accepts a category (Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone (e.g. dark, uplifting, funny, suspenseful, inspirational), and an optional user prompt, then returns a generated story object containing a title, a description (2–3 sentences), and a full narrative body (3–5 paragraphs) written in the StoryWave storytelling style. Store the generated story as a draft associated with the caller's principal so it can be edited and published.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Add an 'AI Generate Story' flow accessible from the Create page. Display a form with a category selector (matching existing categories: Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone selector (Dark, Uplifting, Funny, Suspenseful, Inspirational), and an optional short prompt input field. When the user submits, call the backend generateStory function, show a loading skeleton, then display the returned title, description, and narrative body in editable text fields so the user can review and modify the content before publishing.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+          "frontend/src/pages/CreateStoryPage.tsx",
+          "frontend/src/components/story/CreateStoryForm.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+          "frontend/src/pages/CreateStoryPage.tsx",
+          "frontend/src/components/story/CreateStoryForm.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+    "frontend/src/components/story/CreateStoryForm.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/CreateStoryPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

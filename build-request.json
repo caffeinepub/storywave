@@ -1,0 +1,65 @@
+{
+  "kind": "build_request",
+  "title": "AI Story Generator",
+  "projectName": "StoryWave",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Add an AI story generator backend API in the Motoko actor that accepts a category (Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone (e.g. dark, uplifting, funny, suspenseful, inspirational), and an optional user prompt, then returns a generated story object containing a title, a description (2–3 sentences), and a full narrative body (3–5 paragraphs) written in the StoryWave storytelling style. Store the generated story as a draft associated with the caller's principal so it can be edited and published.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Create an ai which creates the kind of story in this app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes a generateStory(category, tone, prompt) function callable by authenticated principals.",
+        "The function returns a record with title (Text), description (Text), and narrativeBody (Text) fields.",
+        "Generated story is stored as a draft (isPublished = false) linked to the caller's principal.",
+        "Calling the function without authentication returns an error variant.",
+        "Generated stories appear in the caller's 'My Stories' library tab with a 'Draft' badge."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add an 'AI Generate Story' flow accessible from the Create page. Display a form with a category selector (matching existing categories: Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone selector (Dark, Uplifting, Funny, Suspenseful, Inspirational), and an optional short prompt input field. When the user submits, call the backend generateStory function, show a loading skeleton, then display the returned title, description, and narrative body in editable text fields so the user can review and modify the content before publishing.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Create an ai which creates the kind of story in this app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Create page shows a toggle or tab to switch between 'Manual' and 'AI Generate' story creation modes.",
+        "AI Generate form contains: category dropdown, tone dropdown, and optional prompt textarea.",
+        "Submitting the form calls the backend and shows a spinner/skeleton while waiting.",
+        "On success, title, description, and narrative body fields are pre-filled and remain editable.",
+        "User can publish the generated story using the existing Publish button flow.",
+        "If the user is not authenticated, a login prompt is shown instead of the generator form.",
+        "Error states (generation failed) display a user-friendly message with a retry option."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not break or modify existing story creation (manual flow) in CreateStoryForm.",
+    "All new backend logic must remain in the single Motoko actor (backend/main.mo).",
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Text-to-speech or audio generation from the AI-generated story text.",
+    "Integration with external AI/LLM APIs (OpenAI, Anthropic, etc.) — story generation logic must be self-contained on the ICP backend.",
+    "Automatic publishing without user review.",
+    "Comment section or follower system."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

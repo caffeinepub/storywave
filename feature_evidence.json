@@ -1,0 +1,28 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-an-ai-generate-story-flow-accessible-from-the-create-page-display-a-form-with-a-category-selector-matching-existing-categories-horror-romance-motivation-comedy-sci-fi-real-life-a-tone-selector-dark-uplifting-funny-suspenseful-inspirational-and-an-optional-short-prompt-input-field-when-the-user-submits-call-the-backend-generatestory-function-show-a-loading-skeleton-then-display-the-returned-title-description-and-narrative-body-in-editable-text-fields-so-the-user-can-review-and-modify-the-content-before-publishing",
+      "featureTitle": "Add an 'AI Generate Story' flow accessible from the Create page. Display a form with a category selector (matching existing categories: Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), a tone selector (Dark, Uplifting, Funny, Suspenseful, Inspirational), and an optional short prompt input field. When the user submits, call the backend generateStory function, show a loading skeleton, then display the returned title, description, and narrative body in editable text fields so the user can review and modify the content before publishing.",
+      "files": [
+        "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+        "frontend/src/components/story/CreateStoryForm.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/CreateStoryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

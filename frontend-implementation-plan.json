@@ -1,0 +1,42 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AI Story Generator Frontend",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Add an AI story generation flow to the Create page with category, tone, and prompt inputs that calls the backend generateAIDraftStory function and pre-fills editable fields for review before publishing",
+      "acceptanceCriteria": [
+        "Create page shows a toggle or tab to switch between 'Manual' and 'AI Generate' story creation modes.",
+        "AI Generate form contains: category dropdown, tone dropdown, and optional prompt textarea.",
+        "Submitting the form calls the backend and shows a spinner/skeleton while waiting.",
+        "On success, title, description, and narrative body fields are pre-filled and remain editable.",
+        "User can publish the generated story using the existing Publish button flow.",
+        "If the user is not authenticated, a login prompt is shown instead of the generator form.",
+        "Error states (generation failed) display a user-friendly message with a retry option."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+          "operation": "create",
+          "description": "Create a new AI story generator form component that renders category selector (Horror, Romance, Motivation, Comedy, Sci-Fi, Real Life), tone selector (Dark, Uplifting, Funny, Suspenseful, Inspirational), and an optional short prompt textarea. On submit, call the backend getDraftStory method to retrieve the generated draft, display a loading skeleton during generation, and emit the returned story data (title, description, body) to a parent callback for pre-filling the manual form fields. Include error handling with user-friendly messages and a retry button. Verify the authorization component's usage instructions before implementing to ensure proper authentication checks."
+        },
+        {
+          "path": "frontend/src/pages/CreateStoryPage.tsx",
+          "operation": "modify",
+          "description": "Add a tab or toggle control above the CreateStoryForm to switch between 'Manual' and 'AI Generate' modes. When 'AI Generate' is active, render the AIStoryGeneratorForm component. When the AI form returns generated content, switch to 'Manual' mode and pass the title, description, and narrative body as initial values to CreateStoryForm so the user can review and edit before publishing. Ensure the login prompt remains visible for unauthenticated users in both modes."
+        },
+        {
+          "path": "frontend/src/components/story/CreateStoryForm.tsx",
+          "operation": "modify",
+          "description": "Extend CreateStoryForm to accept optional initial values for title, description, and a new narrativeBody field (the full story text). Add a narrativeBody textarea below the description field that displays the AI-generated story body when provided, or remains empty for manual creation. Ensure all fields remain editable regardless of whether they were pre-filled by the AI generator or entered manually. Do not modify the existing publish flow or required fields."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add a new mutation hook useGenerateAIDraftStory that accepts an id (nanoid), genre (category), tone, and prompt, then calls the backend generateAIDraftStory method. Return mutation state including isLoading, error, and success flags. Add a second query hook useGetDraftStory that calls the backend getDraftStory method to retrieve the generated draft after generation completes, returning the StoryDraft object or null. Both hooks must handle authentication state and return appropriate errors for unauthenticated users."
+        }
+      ]
+    }
+  ]
+}

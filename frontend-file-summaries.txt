@@ -1,0 +1,6 @@
+{
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend interactions including profile management, story CRUD, likes, saves, search, view tracking, and two new AI story generation hooks: `useGenerateAIDraftStory` (mutation) and `useGetDraftStory` (query with conditional enabling).",
+  "frontend/src/components/story/AIStoryGeneratorForm.tsx": "New AI story generator form component with genre dropdown, tone dropdown, and optional prompt textarea. Calls `generateAIDraftStory` then fetches the draft, shows a loading skeleton during generation, displays error alerts with retry, and emits the generated `AIGeneratedStory` to a parent callback.",
+  "frontend/src/components/story/CreateStoryForm.tsx": "Extended story creation form that accepts optional `initialValues` (title, description, narrativeBody, category) for AI pre-fill. Adds a `narrativeBody` textarea with an \"AI Generated\" badge when pre-filled; all fields remain fully editable and the existing publish flow is unchanged.",
+  "frontend/src/pages/CreateStoryPage.tsx": "Create Story page with a Manual/AI Generate mode toggle. In AI mode renders `AIStoryGeneratorForm`; on generation success switches to Manual mode and pre-fills `CreateStoryForm` with the AI-generated content, showing a dismissible notice. Unauthenticated users still see the login prompt."
+}

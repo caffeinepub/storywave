@@ -1,0 +1,44 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T22:44:02.760Z",
+  "summary": "The diff implements most of REQ-10 and REQ-11. The frontend AI generation flow, mode toggle, form components, loading skeleton, error/retry, editable pre-fill, and publish flow integration are all present. The backend adds generateAIDraftStory and getDraftStory functions, stores drafts linked to the caller's principal, and returns the expected fields. However, several specific acceptance criteria have gaps: the backend returns a 'narrativeBody' concept via a 'body' field (not 'narrativeBody'), authentication error handling appears to use Runtime.trap rather than returning an error variant, and Draft badge display in 'My Stories' is not evidenced in the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-10",
+      "requirement": "The function returns a record with title (Text), description (Text), and narrativeBody (Text) fields.",
+      "reason": "The AIGeneratedStory type uses 'body' instead of 'narrativeBody' as the field name. The spec explicitly requires a 'narrativeBody' field in the returned record.",
+      "evidence": [
+        "backend/main.mo",
+        "backend/migration.mo",
+        "frontend/src/components/story/AIStoryGeneratorForm.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Calling the function without authentication returns an error variant.",
+      "reason": "The backend appears to use Runtime.trap for authorization failures rather than returning an error variant. The spec requires an error variant to be returned, not a trap/exception.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Generated stories appear in the caller's 'My Stories' library tab with a 'Draft' badge.",
+      "reason": "No evidence in the diff of a Draft badge being displayed in the My Stories library tab. The library page and story card components are not shown as modified to support draft state display.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.72,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/story/AIStoryGeneratorForm.tsx",
+    "frontend/src/components/story/CreateStoryForm.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/CreateStoryPage.tsx",
+    "project_state.json"
+  ]
+}
